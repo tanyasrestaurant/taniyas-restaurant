@@ -1,341 +1,768 @@
-export default function TaniyasRestaurantMenu() {
-  const categories = [
-    {
-      id: 'starters',
-      title: 'Starters',
-      hindi: 'स्टार्टर',
-      image:
-        'https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['French Fries', '₹50 / ₹80'],
-        ['Veg Pakoda', '₹100 / ₹180'],
-        ['Paneer Pakoda', '₹180 / ₹350'],
-        ['Veg Sandwich', '₹80 / ₹150'],
-        ['Paneer Sandwich', '₹120 / ₹200'],
-        ['Steam Momo', '₹30 / ₹50'],
-        ['Fried Momo', '₹50 / ₹90'],
-        ['Elaichi Tea', '₹15'],
-        ['Hot Coffee', '₹25'],
-        ['Vegetable Maggie', '₹40'],
-        ['Cheese Maggie', '₹80'],
-        ['Paneer Maggie', '₹80'],
-        ['Veg Cutlet', '₹80'],
-        ['Paneer Cutlet', '₹140'],
-        ['Pav Bhaji', '₹60'],
-        ['Tomato Soup', '₹40'],
-        ['Hot & Sour Soup', '₹40'],
-        ['Cream Soup', '₹40'],
-        ['Cold Coffee', '₹40'],
-        ['Punjab Di Lassi', '₹40'],
-      ],
-    },
-    {
-      id: 'khana',
-      title: 'Khana Khazana',
-      hindi: 'खाना खजाना',
-      image:
-        'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Kadhai Paneer', '₹140 / ₹250'],
-        ['Shahi Paneer', '₹140 / ₹250'],
-        ['Paneer Achari', '₹150 / ₹280'],
-        ['Paneer Tikka Masala', '₹180 / ₹330'],
-        ['Mix Veg', '₹130 / ₹250'],
-        ['Dal Makhani', '₹90 / ₹170'],
-        ['Paneer Butter Masala', '₹160 / ₹300'],
-        ['Paneer Lababdar', '₹200 / ₹400'],
-        ['Desi Ghee Handi Paneer', '₹180 / ₹330'],
-        ['Paneer Begum Bahar', '₹150 / ₹280'],
-        ['Veg Keema', '₹130 / ₹250'],
-        ['Veg Jalfreji', '₹160 / ₹300'],
-        ['Butter Chana Masala', '₹110 / ₹200'],
-        ['Malai Kofta', '₹150 / ₹300'],
-        ['Vegetable Kofta', '₹130 / ₹250'],
-        ['Paneer Kaleji', '₹180 / ₹340'],
-        ['Paneer Bhujiya', '₹200 / ₹340'],
-        ['Dal Arhar', '₹80 / ₹150'],
-        ['Dal Amritsari', '₹90 / ₹170'],
-        ['Paneer Kali Mirch', '₹200 / ₹380'],
-        ['Kaju Paneer', '₹220 / ₹400'],
-        ['Paneer Pasanda', '₹230 / ₹450'],
-        ['Paneer Kandhari', '₹230 / ₹450'],
-        ['Navratan Korma', '₹200 / ₹350'],
-        ['Paneer Changezi', '₹180 / ₹330'],
-        ['Paneer South Indian', '₹180 / ₹340'],
-        ['Matar Paneer', '₹140 / ₹250'],
-        ['Paneer Stuffed Tomato', '₹180 / ₹300'],
-        ['Paneer Singapuri', '₹180 / ₹300'],
-        ['Jeera Aloo', '₹70 / ₹130'],
-        ['Methi Malai Paneer', '₹200 / ₹400'],
-        ['Mushroom Paneer', '₹200 / ₹380'],
-        ['Mushroom Matar', '₹150 / ₹250'],
-        ['Mushroom Curry', '₹150 / ₹250'],
-      ],
-    },
-    {
-      id: 'south',
-      title: 'South Indian',
-      hindi: 'साउथ इंडियन',
-      image:
-        'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Paper Plain Dosa', '₹110'],
-        ['Masala Dosa', '₹130'],
-        ['Paneer Masala Dosa', '₹180'],
-        ['Butter Masala Dosa', '₹140'],
-        ['Mix Veg Uttapam', '₹130'],
-        ['Onion Masala Dosa', '₹150'],
-        ['Paneer Uttapam', '₹180'],
-        ['Onion Tomato Uttapam', '₹150'],
-        ['Mix Veg Dosa', '₹150'],
-      ],
-    },
-    {
-      id: 'burger',
-      title: 'Burger',
-      hindi: 'बर्गर',
-      image:
-        'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Veg Burger', '₹40'],
-        ['Paneer Burger', '₹60'],
-        ['Cheese Burger', '₹60'],
-        ['Cheese Toast', '₹80'],
-        ['Crispy Custom Burger', '₹80'],
-        ['Butter Toast', '₹60'],
-        ['Bun Butter', '₹40'],
-        ['Bread Butter Toast Jam', '₹80'],
-      ],
-    },
-    {
-      id: 'chinese',
-      title: 'Chinese',
-      hindi: 'चाइनीज',
-      image:
-        'https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Veg Fried Rice', '₹50 / ₹80'],
-        ['Veg Chowmien', '₹30 / ₹50'],
-        ['Veg Spring Roll', '₹50 / ₹100'],
-        ['Chilli Paneer', '₹200 / ₹350'],
-        ['Honey Chilli Potato', '₹90 / ₹160'],
-        ['Paneer Chowmein', '₹80 / ₹140'],
-        ['Veg Manchurian', '₹100 / ₹180'],
-        ['Manchurian with Rice', '₹100 / ₹180'],
-        ['Veg Chopsuey', '₹80 / ₹100'],
-        ['Paneer Fried Rice', '₹80 / ₹140'],
-        ['Veg Kathiroll', '₹80 / ₹150'],
-        ['Paneer Kanthi Roll', '₹130 / ₹250'],
-        ['Chilly Mushroom', '₹200 / ₹380'],
-      ],
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  categories.push(
-    {
-      id: 'india',
-      title: 'Make In India',
-      hindi: 'मेक इन इंडिया',
-      image:
-        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Aloo Pyaz Parantha', '₹40'],
-        ['Onion Parantha', '₹50'],
-        ['Paneer Parantha', '₹70'],
-        ['Chole Bhature (2ps)', '₹80'],
-        ['Lachha Parantha', '₹25'],
-        ['Tawa Roti', '₹08'],
-        ['Butter Roti', '₹12'],
-        ['Missi Roti', '₹40'],
-        ['Aloo Puri', '₹70'],
-      ],
-    },
-    {
-      id: 'rice',
-      title: 'Chawal Ki Khushboo',
-      hindi: 'चावल की खुशबू',
-      image:
-        'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Veg Biryani', '₹120'],
-        ['Zeera Rice', '₹50 / ₹80'],
-        ['Paneer Pulao', '₹140'],
-        ['Plain Rice', '₹50 / ₹80'],
-        ['Dal Chawal', '₹100'],
-      ],
-    },
-    {
-      id: 'raita',
-      title: 'Raita & Salad',
-      hindi: 'रायता और सलाद',
-      image:
-        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Green Salad', '₹50'],
-        ['Mix Raita', '₹80'],
-        ['Boondi Raita', '₹80'],
-        ['Papad Masala', '₹40'],
-        ['Papad Dry', '₹15'],
-      ],
-    },
-    {
-      id: 'sweets',
-      title: 'Sweets',
-      hindi: 'मिठाइयाँ',
-      image:
-        'https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Chawal ki Kheer', '₹90'],
-        ['Shahi Cream Toast', '₹90'],
-        ['Shahi Chashni Toast', '₹90'],
-      ],
-    },
-    {
-      id: 'combo',
-      title: 'Combos',
-      hindi: 'कॉम्बो',
-      image:
-        'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop',
-      items: [
-        ['Veg Thali', '₹180'],
-        ['Special Thali', '₹280'],
-      ],
-    }
-  );
+<title>TANIYA'S RESTAURANT</title>
 
-  return (
-    <div className="min-h-screen bg-black text-white">
-      <section
-        className="flex min-h-screen items-center justify-center bg-cover bg-center px-6 text-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1800&auto=format&fit=crop')",
-        }}
-      >
-        <div>
-          <p className="tracking-[0.4em] text-yellow-500 text-sm">
-            100% PURE VEGETARIAN
-          </p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-          <h1 className="mt-6 text-6xl md:text-8xl font-bold text-yellow-100">
-            TANIYA'S
-          </h1>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-          <h2 className="mt-3 text-2xl md:text-4xl tracking-[0.3em] text-yellow-500">
-            RESTAURANT
-          </h2>
+<style>
 
-          <p className="mt-6 text-zinc-300 text-xl italic">
-            Taste • Family • Tradition
-          </p>
-
-          <a
-            href="tel:+919058149653"
-            className="mt-10 inline-block rounded-full bg-yellow-500 px-8 py-4 font-semibold text-black transition hover:bg-yellow-400"
-          >
-            Call Now
-          </a>
-        </div>
-      </section>
-
-      <nav className="sticky top-0 z-50 overflow-x-auto border-b border-yellow-500/20 bg-black/90 backdrop-blur-xl">
-        <div className="flex min-w-max gap-4 px-4 py-4">
-          {categories.map((category) => (
-            <a
-              key={category.id}
-              href={`#${category.id}`}
-              className="rounded-full border border-yellow-500/30 px-5 py-2 text-yellow-100 transition hover:bg-yellow-500 hover:text-black"
-            >
-              {category.title}
-            </a>
-          ))}
-        </div>
-      </nav>
-
-      <div className="py-16 text-center">
-        <p className="text-sm tracking-[0.3em] text-yellow-500">
-          OUR SIGNATURE MENU
-        </p>
-
-        <h2 className="mt-4 text-4xl md:text-6xl text-yellow-100">
-          Explore Our Flavours
-        </h2>
-      </div>
-
-      <section className="mx-auto grid w-[92%] max-w-7xl grid-cols-1 gap-10 pb-24 md:grid-cols-2 xl:grid-cols-3">
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            id={category.id}
-            className="overflow-hidden rounded-3xl border border-yellow-500/10 bg-zinc-900 shadow-2xl"
-          >
-            <div className="relative h-72 overflow-hidden">
-              <img
-                src={category.image}
-                alt={category.title}
-                className="h-full w-full object-cover"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
-
-              <div className="absolute bottom-5 left-5">
-                <h3 className="text-3xl text-yellow-100">
-                  {category.title}
-                </h3>
-
-                <p className="text-yellow-500">
-                  {category.hindi}
-                </p>
-              </div>
-            </div>
-
-            <div className="max-h-[500px] overflow-y-auto p-6">
-              {category.items.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between gap-4 border-b border-zinc-700 py-3"
-                >
-                  <p className="text-zinc-200">{item[0]}</p>
-
-                  <span className="whitespace-nowrap font-semibold text-yellow-500">
-                    {item[1]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="mx-auto mb-24 w-[92%] max-w-5xl rounded-[2rem] bg-gradient-to-br from-yellow-500 to-yellow-600 p-10 text-center text-black shadow-2xl md:p-16">
-        <h2 className="text-4xl md:text-6xl">
-          Visit TANIYA'S RESTAURANT
-        </h2>
-
-        <div className="mt-8 space-y-4 text-lg font-medium">
-          <p>📍 Gauchar Tiraha, Dwarahat</p>
-          <p>📞 +91 90581 49653</p>
-          <p>⏰ Fresh Food • Fast Service • Family Comfort</p>
-        </div>
-
-        <a
-          href="tel:+919058149653"
-          className="mt-10 inline-block rounded-full bg-black px-8 py-4 font-semibold text-white"
-        >
-          Call Restaurant
-        </a>
-      </section>
-
-      <footer className="border-t border-zinc-800 py-8 text-center text-zinc-500">
-        Shudh Swaad • Accha Mahaul • Yaadgaar Anubhav
-      </footer>
-
-      <a
-        href="tel:+919058149653"
-        className="fixed bottom-6 right-6 rounded-full bg-yellow-500 px-6 py-4 font-bold text-black shadow-2xl"
-      >
-        📞 Call Now
-      </a>
-    </div>
-  );
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
+
+body{
+font-family:'Poppins',sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+h1,h2,h3{
+font-family:'Cinzel',serif;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
+url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1800&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero small{
+color:#d4a937;
+letter-spacing:8px;
+font-size:14px;
+}
+
+.hero h1{
+font-size:80px;
+margin-top:20px;
+color:#f8e7b0;
+}
+
+.hero h2{
+color:#d4a937;
+letter-spacing:10px;
+margin-top:10px;
+font-size:34px;
+}
+
+.hero p{
+margin-top:25px;
+font-size:22px;
+color:#ddd;
+}
+
+.call-btn{
+display:inline-block;
+margin-top:40px;
+background:#d4a937;
+color:black;
+padding:16px 36px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.call-btn:hover{
+transform:scale(1.05);
+background:#f0c44f;
+}
+
+.sticky-nav{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(0,0,0,0.92);
+backdrop-filter:blur(10px);
+padding:15px;
+overflow-x:auto;
+border-bottom:1px solid rgba(212,169,55,0.2);
+}
+
+.sticky-nav ul{
+display:flex;
+gap:14px;
+list-style:none;
+min-width:max-content;
+}
+
+.sticky-nav a{
+text-decoration:none;
+color:#f8e7b0;
+border:1px solid rgba(212,169,55,0.3);
+padding:10px 18px;
+border-radius:50px;
+transition:0.3s;
+font-size:14px;
+white-space:nowrap;
+}
+
+.sticky-nav a:hover{
+background:#d4a937;
+color:black;
+}
+
+.section-title{
+text-align:center;
+padding:80px 20px 40px;
+}
+
+.section-title p{
+color:#d4a937;
+letter-spacing:5px;
+margin-bottom:12px;
+font-size:14px;
+}
+
+.section-title h2{
+font-size:52px;
+color:#f8e7b0;
+}
+
+.menu-grid{
+width:92%;
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:35px;
+padding-bottom:100px;
+}
+
+.menu-card{
+background:#111;
+border-radius:28px;
+overflow:hidden;
+border:1px solid rgba(212,169,55,0.15);
+transition:0.4s;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
+}
+
+.menu-card:hover{
+transform:translateY(-8px);
+}
+
+.menu-image{
+height:260px;
+position:relative;
+overflow:hidden;
+}
+
+.menu-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.menu-card:hover .menu-image img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(transparent,rgba(0,0,0,0.9));
+}
+
+.menu-heading{
+position:absolute;
+bottom:20px;
+left:20px;
+}
+
+.menu-heading h3{
+color:#f8e7b0;
+font-size:32px;
+}
+
+.menu-heading span{
+color:#d4a937;
+}
+
+.menu-items{
+padding:28px;
+max-height:520px;
+overflow-y:auto;
+}
+
+.menu-row{
+display:flex;
+justify-content:space-between;
+gap:20px;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.menu-row p{
+color:#eee;
+font-size:15px;
+}
+
+.price{
+color:#d4a937;
+font-weight:600;
+white-space:nowrap;
+}
+
+.contact-section{
+width:92%;
+max-width:1200px;
+margin:0 auto 100px;
+background:linear-gradient(135deg,#d4a937,#f0c44f);
+padding:60px;
+border-radius:30px;
+color:black;
+text-align:center;
+}
+
+.contact-section h2{
+font-size:50px;
+margin-bottom:25px;
+}
+
+.contact-section p{
+font-size:18px;
+margin-bottom:14px;
+font-weight:500;
+}
+
+footer{
+text-align:center;
+padding:30px 20px;
+color:#777;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.floating-call{
+position:fixed;
+right:25px;
+bottom:25px;
+background:#d4a937;
+color:black;
+padding:16px 24px;
+border-radius:60px;
+text-decoration:none;
+font-weight:700;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+z-index:999;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:52px;
+}
+
+.hero h2{
+font-size:24px;
+letter-spacing:6px;
+}
+
+.section-title h2{
+font-size:36px;
+}
+
+.contact-section{
+padding:40px 25px;
+}
+
+.contact-section h2{
+font-size:34px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+<div class="hero-content">
+
+<small>100% PURE VEGETARIAN</small>
+
+<h1>TANIYA'S</h1>
+
+<h2>RESTAURANT</h2>
+
+<p>Taste • Family • Tradition</p>
+
+<a href="tel:+919058149653" class="call-btn">
+Call Now
+</a>
+
+</div>
+</section>
+
+<nav class="sticky-nav">
+<ul>
+
+<li><a href="#starters">Starters</a></li>
+<li><a href="#khana">Khana Khazana</a></li>
+<li><a href="#india">Make In India</a></li>
+<li><a href="#rice">Chawal Ki Khushboo</a></li>
+<li><a href="#raita">Raita & Salad</a></li>
+<li><a href="#sweets">Sweets</a></li>
+<li><a href="#combo">Combos</a></li>
+<li><a href="#south">South Indian</a></li>
+<li><a href="#burger">Burger</a></li>
+<li><a href="#chinese">Chinese</a></li>
+
+</ul>
+</nav>
+
+<div class="section-title">
+<p>OUR SIGNATURE MENU</p>
+<h2>Explore Our Flavours</h2>
+</div>
+
+<section class="menu-grid">
+
+<!-- STARTERS -->
+
+<div class="menu-card" id="starters">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Starters</h3>
+<span>स्टार्टर</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>French Fries</p><span class="price">₹50 / ₹80</span></div>
+<div class="menu-row"><p>Veg Pakoda</p><span class="price">₹100 / ₹180</span></div>
+<div class="menu-row"><p>Paneer Pakoda</p><span class="price">₹180 / ₹350</span></div>
+<div class="menu-row"><p>Veg Sandwich</p><span class="price">₹80 / ₹150</span></div>
+<div class="menu-row"><p>Paneer Sandwich</p><span class="price">₹120 / ₹200</span></div>
+<div class="menu-row"><p>Steam Momo</p><span class="price">₹30 / ₹50</span></div>
+<div class="menu-row"><p>Fried Momo</p><span class="price">₹50 / ₹90</span></div>
+<div class="menu-row"><p>Elaichi Tea</p><span class="price">₹15</span></div>
+<div class="menu-row"><p>Hot Coffee</p><span class="price">₹25</span></div>
+<div class="menu-row"><p>Vegetable Maggie</p><span class="price">₹40</span></div>
+<div class="menu-row"><p>Cheese Maggie</p><span class="price">₹80</span></div>
+<div class="menu-row"><p>Paneer Maggie</p><span class="price">₹80</span></div>
+<div class="menu-row"><p>Veg Cutlet</p><span class="price">₹80</span></div>
+<div class="menu-row"><p>Paneer Cutlet</p><span class="price">₹140</span></div>
+<div class="menu-row"><p>Pav Bhaji</p><span class="price">₹60</span></div>
+<div class="menu-row"><p>Tomato Soup</p><span class="price">₹40</span></div>
+<div class="menu-row"><p>Hot & Sour Soup</p><span class="price">₹40</span></div>
+<div class="menu-row"><p>Cream Soup</p><span class="price">₹40</span></div>
+<div class="menu-row"><p>Cold Coffee</p><span class="price">₹40</span></div>
+<div class="menu-row"><p>Punjab Di Lassi</p><span class="price">₹40</span></div>
+
+</div>
+</div>
+
+<!-- KHANA KHAZANA -->
+
+<div class="menu-card" id="khana">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Khana Khazana</h3>
+<span>खाना खजाना</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Kadhai Paneer</p><span class="price">₹140 / ₹250</span></div>
+
+<div class="menu-row"><p>Shahi Paneer</p><span class="price">₹140 / ₹250</span></div>
+
+<div class="menu-row"><p>Paneer Achari</p><span class="price">₹150 / ₹280</span></div>
+
+<div class="menu-row"><p>Desi Ghee Handi Paneer</p><span class="price">₹180 / ₹330</span></div>
+
+<div class="menu-row"><p>Paneer Tikka Masala</p><span class="price">₹180 / ₹330</span></div>
+
+<div class="menu-row"><p>Paneer Begum Bahar</p><span class="price">₹150 / ₹280</span></div>
+
+<div class="menu-row"><p>Veg Keema</p><span class="price">₹130 / ₹250</span></div>
+
+<div class="menu-row"><p>Mix Veg</p><span class="price">₹130 / ₹250</span></div>
+
+<div class="menu-row"><p>Veg Jalfreji</p><span class="price">₹160 / ₹300</span></div>
+
+<div class="menu-row"><p>Butter Chana Masala</p><span class="price">₹110 / ₹200</span></div>
+
+<div class="menu-row"><p>Malai Kofta</p><span class="price">₹150 / ₹300</span></div>
+
+<div class="menu-row"><p>Vegetable Kofta</p><span class="price">₹130 / ₹250</span></div>
+
+<div class="menu-row"><p>Paneer Kaleji</p><span class="price">₹180 / ₹340</span></div>
+
+<div class="menu-row"><p>Paneer Bhujiya</p><span class="price">₹200 / ₹340</span></div>
+
+<div class="menu-row"><p>Dal Arhar</p><span class="price">₹80 / ₹150</span></div>
+
+<div class="menu-row"><p>Dal Makhani</p><span class="price">₹90 / ₹170</span></div>
+
+<div class="menu-row"><p>Dal Amritsari</p><span class="price">₹90 / ₹170</span></div>
+
+<div class="menu-row"><p>Paneer Kali Mirch</p><span class="price">₹200 / ₹380</span></div>
+
+<div class="menu-row"><p>Kaju Paneer</p><span class="price">₹220 / ₹400</span></div>
+
+<div class="menu-row"><p>Paneer Pasanda</p><span class="price">₹230 / ₹450</span></div>
+
+<div class="menu-row"><p>Paneer Kandhari</p><span class="price">₹230 / ₹450</span></div>
+
+<div class="menu-row"><p>Paneer Butter Masala</p><span class="price">₹160 / ₹300</span></div>
+
+<div class="menu-row"><p>Navratan Korma</p><span class="price">₹200 / ₹350</span></div>
+
+<div class="menu-row"><p>Paneer Changezi</p><span class="price">₹180 / ₹330</span></div>
+
+<div class="menu-row"><p>Paneer South Indian</p><span class="price">₹180 / ₹340</span></div>
+
+<div class="menu-row"><p>Matar Paneer</p><span class="price">₹140 / ₹250</span></div>
+
+<div class="menu-row"><p>Paneer Stuffed Tomato</p><span class="price">₹180 / ₹300</span></div>
+
+<div class="menu-row"><p>Paneer Singapuri</p><span class="price">₹180 / ₹300</span></div>
+
+<div class="menu-row"><p>Jeera Aloo</p><span class="price">₹70 / ₹130</span></div>
+
+<div class="menu-row"><p>Paneer Lababdar</p><span class="price">₹200 / ₹400</span></div>
+
+<div class="menu-row"><p>Methi Malai Paneer</p><span class="price">₹200 / ₹400</span></div>
+
+<div class="menu-row"><p>Mushroom Paneer</p><span class="price">₹200 / ₹380</span></div>
+
+<div class="menu-row"><p>Mushroom Matar</p><span class="price">₹150 / ₹250</span></div>
+
+<div class="menu-row"><p>Mushroom Curry</p><span class="price">₹150 / ₹250</span></div>
+
+</div>
+</div>
+
+<!-- SOUTH INDIAN -->
+
+<div class="menu-card" id="south">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>South Indian</h3>
+<span>साउथ इंडियन</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Paper Plain Dosa</p><span class="price">₹110</span></div>
+
+<div class="menu-row"><p>Masala Dosa</p><span class="price">₹130</span></div>
+
+<div class="menu-row"><p>Paneer Masala Dosa</p><span class="price">₹180</span></div>
+
+<div class="menu-row"><p>Butter Masala Dosa</p><span class="price">₹140</span></div>
+
+<div class="menu-row"><p>Onion Masala Dosa</p><span class="price">₹150</span></div>
+
+<div class="menu-row"><p>Mix Veg Uttapam</p><span class="price">₹130</span></div>
+
+<div class="menu-row"><p>Paneer Uttapam</p><span class="price">₹180</span></div>
+
+<div class="menu-row"><p>Onion Tomato Uttapam</p><span class="price">₹150</span></div>
+
+<div class="menu-row"><p>Mix Veg Dosa</p><span class="price">₹150</span></div>
+
+</div>
+</div>
+
+<!-- BURGER -->
+
+<div class="menu-card" id="burger">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Burger</h3>
+<span>बर्गर</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Veg Burger</p><span class="price">₹40</span></div>
+
+<div class="menu-row"><p>Paneer Burger</p><span class="price">₹60</span></div>
+
+<div class="menu-row"><p>Crispy Custom Burger</p><span class="price">₹80</span></div>
+
+<div class="menu-row"><p>Cheese Burger</p><span class="price">₹60</span></div>
+
+<div class="menu-row"><p>Butter Toast</p><span class="price">₹60</span></div>
+
+<div class="menu-row"><p>Bun Butter</p><span class="price">₹40</span></div>
+
+<div class="menu-row"><p>Cheese Toast</p><span class="price">₹80</span></div>
+
+<div class="menu-row"><p>Bread Butter Toast Jam</p><span class="price">₹80</span></div>
+
+</div>
+</div>
+
+<!-- CHINESE -->
+
+<div class="menu-card" id="chinese">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1585032226651-759b368d7246?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Chinese</h3>
+<span>चाइनीज</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Veg Fried Rice</p><span class="price">₹50 / ₹80</span></div>
+
+<div class="menu-row"><p>Veg Chowmien</p><span class="price">₹30 / ₹50</span></div>
+
+<div class="menu-row"><p>Veg Spring Roll</p><span class="price">₹50 / ₹100</span></div>
+
+<div class="menu-row"><p>Chilli Paneer</p><span class="price">₹200 / ₹350</span></div>
+
+<div class="menu-row"><p>Honey Chilli Potato</p><span class="price">₹90 / ₹160</span></div>
+
+<div class="menu-row"><p>Paneer Chowmein</p><span class="price">₹80 / ₹140</span></div>
+
+<div class="menu-row"><p>Veg Manchurian</p><span class="price">₹100 / ₹180</span></div>
+
+<div class="menu-row"><p>Manchurian with Rice</p><span class="price">₹100 / ₹180</span></div>
+
+<div class="menu-row"><p>Veg Chopsuey</p><span class="price">₹80 / ₹100</span></div>
+
+<div class="menu-row"><p>Paneer Fried Rice</p><span class="price">₹80 / ₹140</span></div>
+
+<div class="menu-row"><p>Veg Kathiroll</p><span class="price">₹80 / ₹150</span></div>
+
+<div class="menu-row"><p>Paneer Kanthi Roll</p><span class="price">₹130 / ₹250</span></div>
+
+<div class="menu-row"><p>Chilly Mushroom</p><span class="price">₹200 / ₹380</span></div>
+
+</div>
+</div>
+
+
+<!-- Make In India -->
+
+<div class="menu-card" id="india">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Make In India</h3>
+<span> मेक इन इंडिया</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Aloo Pyaz Parantha</p><span class="price">₹40</span></div>
+
+<div class="menu-row"><p>Onion Parantha</p><span class="price">₹50</span></div>
+
+<div class="menu-row"><p>Paneer Parantha</p><span class="price">₹70</span></div>
+
+<div class="menu-row"><p>Chole Bhature (2ps)</p><span class="price">₹80</span></div>
+
+<div class="menu-row"><p>Lachha Parantha</p><span class="price">₹25</span></div>
+
+<div class="menu-row"><p>Tawa Roti</p><span class="price">₹08</span></div>
+
+<div class="menu-row"><p>Butter Roti</p><span class="price">₹12</span></div>
+
+<div class="menu-row"><p>Missi Roti</p><span class="price">₹40</span></div>
+
+<div class="menu-row"><p>Aloo Puri</p><span class="price">₹70</span></div>
+
+</div>
+</div>
+
+
+<!-- Chawal Ki Khushboo -->
+
+<div class="menu-card" id="rice">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Chawal Ki Khushboo</h3>
+<span> चावल की खुशबू</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Veg Biryani</p><span class="price">₹120</span></div>
+
+<div class="menu-row"><p>Zeera Rice</p><span class="price">₹50 / ₹80</span></div>
+
+<div class="menu-row"><p>Paneer Pulao</p><span class="price">₹140</span></div>
+
+<div class="menu-row"><p>Plain Rice</p><span class="price">₹50 / ₹80</span></div>
+
+<div class="menu-row"><p>Dal Chawal</p><span class="price">₹100</span></div>
+
+</div>
+</div>
+
+<!-- Raita & Salad -->
+
+<div class="menu-card" id="raita">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Raita & Salad</h3>
+<span> रायता और सलाद</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Green Salad</p><span class="price">₹50</span></div>
+
+<div class="menu-row"><p>Mix Raita</p><span class="price">₹80</span></div>
+
+<div class="menu-row"><p>Boondi Raita</p><span class="price">₹80</span></div>
+
+<div class="menu-row"><p>Papad Masala</p><span class="price">₹40</span></div>
+
+<div class="menu-row"><p>Papad Dry</p><span class="price">₹15</span></div>
+
+</div>
+</div>
+
+<!-- Sweets -->
+
+<div class="menu-card" id="sweets">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Sweets</h3>
+<span> मिठाइयाँ</span>
+</div>
+</div>
+
+<div class="menu-items">
+
+<div class="menu-row"><p>Chawal ki Kheer</p><span class="price">₹90</span></div>
+
+<div class="menu-row"><p>Shahi Cream Toast</p><span class="price">₹90</span></div>
+
+<div class="menu-row"><p>Shahi Chashni Toast</p><span class="price">₹90</span></div>
+
+</div>
+</div>
+
+<!-- Combos -->
+
+<div class="menu-card" id="combo">
+
+<div class="menu-image">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1200&auto=format&fit=crop">
+
+<div class="overlay"></div>
+
+<div class="menu-heading">
+<h3>Combos</h3>
+<span> कॉम्बो</span>
+</div>
+</div>
+
+<div class="menu-items">
+<div class="menu-row"><p>Veg Thali</p><span class="price">₹180</span></div>
+<div class="menu-row"><p>Special Thali</p><span class="price">₹280</span></div>
+</div>
+</div>
+
+
+</section>
+
+<section class="contact-section">
+
+<h2>Visit TANIYA'S RESTAURANT</h2>
+
+<p>📍 Gauchar Tiraha, Dwarahat</p>
+<p>📞 +91 90581 49653</p>
+<p>⏰ Fresh Food • Fast Service • Family Comfort</p>
+
+<a href="tel:+919058149653" class="call-btn">
+Call Restaurant
+</a>
+
+</section>
+
+<footer>
+Shudh Swaad • Accha Mahaul • Yaadgaar Anubhav
+</footer>
+
+<a href="tel:+919058149653" class="floating-call">
+📞 Call Now
+</a>
+
+</body>
+</html>
